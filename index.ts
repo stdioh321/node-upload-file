@@ -9,6 +9,8 @@ const upload = multer({ storage: storage })
 const app = express()
 
 app.use('/public', express.static('uploads'))
+
+
 app.post('/upload', upload.single('file'), (req, res) => {
   return res.json(`${BASE_URL}/public/${req.file?.filename}`)
 })

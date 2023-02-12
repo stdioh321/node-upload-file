@@ -2,12 +2,12 @@ import multer from "multer"
 import path from "path"
 
 export const storage = multer.diskStorage({
-  destination(req, file, callback){
+  destination(req, file, callback) {
     callback(null, path.resolve("uploads"))
   },
-  filename(req, file, callback){
+  filename(req, file, callback) {
     const time = `${new Date().getTime()}`;
     const name = `${time}_${file.originalname}`;
     callback(null, name);
-  }
+  },
 });
